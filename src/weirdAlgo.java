@@ -16,6 +16,7 @@ public class weirdAlgo {
             }
             else{
                 n=n*3+1;
+                
             }
 
         }
