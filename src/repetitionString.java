@@ -7,6 +7,7 @@ public class repetitionString {
         Scanner sc=new Scanner(System.in);
         String st[]=sc.nextLine().split("");
         int max=0,count=0;
+        
         for(int i=0;i<st.length;i++){
 
             String s=st[i];
