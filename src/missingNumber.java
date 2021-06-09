@@ -14,6 +14,5 @@ public class missingNumber {
         csum=(long)n*(n+1)/2;
         System.out.println(csum-sum);
 
-
     }
 }
