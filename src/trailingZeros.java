@@ -9,11 +9,11 @@ public class trailingZeros {
         int twcount=0,ficount=0;
 
         int cp=n;
-        while(cp>=0){
+        while(cp>0){
             twcount++;
            cp=cp>>1;
         }
-        while(n>=0){
+        while(n>0){
             ficount++;
             n/=5;
         }
