@@ -45,7 +45,7 @@ public class palidromReorder {
                 String s1="";
                 int cnt=(int)mp.getValue()/2;
                 while(cnt-->0){
-                    s1=s1+(String) mp.getValue();
+                    s1=s1+(String) mp.getKey();
                 }
                 firsth+=s1;
                 secondh=s1+secondh;
