@@ -1,5 +1,3 @@
-import com.sun.deploy.util.StringUtils;
-
 import java.util.*;
 
 public class palidromReorder {
@@ -23,7 +21,7 @@ public class palidromReorder {
                 hm.put(s[i],1);
         }
         int oddCount=0,flag=0;
-        String ch,firsth="",secondh="";
+        String ch="",firsth="",secondh="";
         for(Map.Entry mp :hm.entrySet()){
             if((int)mp.getValue()%2!=0){
                 oddCount++;
@@ -40,8 +38,16 @@ public class palidromReorder {
             System.out.println("NO SOLUTION");
         else{
             for(Map.Entry mp :hm.entrySet()) {
-            String filled= StringUtils.repeat((String)mp.getKey(),(int)mp.getValue()/2);
+                String str = new String(new char[(int)mp.getValue()/2]);
+                str=str.replace('\0',(Character)mp.getKey());
+
+                firsth+=s;
+                secondh=s+secondh;
             }
+            if(oddCount==1)
+                System.out.println(firsth+ch+secondh);
+            else
+                System.out.println(firsth+secondh);
         }
     }
 }
