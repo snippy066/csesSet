@@ -5,11 +5,9 @@ public class palidromReorder {
     public static void main(String ar[]){
         Scanner sc=new Scanner(System.in);
 
-        String st=sc.nextLine();
-        String arr[]=new String[st.length()];
-        for(int i=0;i<st.length();i++)
-            arr[i]=st.charAt(i)+"";
-        getpalindrom(arr,st.length());
+        String st[]=sc.nextLine().split("");
+
+        getpalindrom(st,st.length);
     }
 
     static void getpalindrom(String[] s,int n){
@@ -25,9 +23,6 @@ public class palidromReorder {
                 hm.put(s[i],1);
         }
 
-//        for(Map.Entry mp :hm.entrySet()){
-//            System.out.println((String)mp.getKey()+" "+(int)mp.getValue());
-//        }
         int oddCount=0,flag=0;
         String ch="",firsth="",secondh="";
         for(Map.Entry mp :hm.entrySet()){
@@ -36,7 +31,7 @@ public class palidromReorder {
                 flag++;
                 ch=(String)mp.getKey();
             }
-           // System.out.println(mp.getValue());
+
             if(flag>1)
                 break;
         }
@@ -47,16 +42,19 @@ public class palidromReorder {
             System.out.println("NO SOLUTION");
         else{
             for(Map.Entry mp :hm.entrySet()) {
-                String str = new String(new char[(int)mp.getValue()/2]);
-                str=str.replace('\0',(Character)mp.getKey());
-
-                firsth+=s;
-                secondh=s+secondh;
+                String s1="";
+                int cnt=(int)mp.getValue()/2;
+                while(cnt-->0){
+                    s1=s1+(String) mp.getValue();
+                }
+                firsth+=s1;
+                secondh=s1+secondh;
             }
             if(oddCount==1)
                 System.out.println(firsth+ch+secondh);
             else
                 System.out.println(firsth+secondh);
         }
+
     }
 }
