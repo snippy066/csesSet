@@ -13,7 +13,7 @@ public class palidromReorder {
         hm=new HashMap<String,Integer>();
 
         for(int i=0;i<n;i++){
-            
+            if(hm.containsValue(s[i]))
         }
     }
 }
