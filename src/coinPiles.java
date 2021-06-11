@@ -8,13 +8,13 @@ public class coinPiles {
         while(t-->0){
             int a=in.nextInt();
             int b=in.nextInt();
-            
+
             int sum=a+b;
 
             if(sum%3==0)
-                sb.append("YES");
+                sb.append("YES\n");
             else
-                sb.append("NO");
+                sb.append("NO\n");
         }
         System.out.println(sb.toString());
     }
