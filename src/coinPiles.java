@@ -9,13 +9,12 @@ public class coinPiles {
             int a=in.nextInt();
             int b=in.nextInt();
 
-           // int sum=a+b;
-            while(a!=0 && b!=0){
-                a-=3;
-                b-=3;
-            }
-
-            if(a==0 && b==0)
+            int sum=a+b;
+            a=Math.max(a,b);
+            b=sum-a;
+            if(a>2*b)
+                sb.append("NO\n");
+            else if(sum%3==0)
                 sb.append("YES\n");
             else
                 sb.append("NO\n");
