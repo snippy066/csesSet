@@ -4,6 +4,7 @@ public class grayCode {
     public static void main(String ar[]){
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
+        int j=n;
         StringBuilder sb=new StringBuilder();
 
         List<Integer> list=new ArrayList<>();
@@ -20,8 +21,8 @@ public class grayCode {
 
         for(int i=0;i<list.size();i++){
             String s=Integer.toBinaryString(list.get(i));
-            
-            char[] ch=new char[n-s.length()];
+
+            char[] ch=new char[j-s.length()];
             Arrays.fill(ch,'0');
             String add=new String(ch);
             sb.append(add+s+"\n");
