@@ -5,12 +5,16 @@ public class grayCode {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
         char[] ch=new char[n];
-        Arrays.fill(ch,'1');
+        Arrays.fill(ch,'0');
         String s=new String(ch);
-        int i=0;
-        while(++i<=4){
-        s=s.replaceFirst("1","0");
-        System.out.println(s);
+        StringBuilder sb=new StringBuilder();
+        char add='1';
+        int su=0;
+        int i=s.length();
+        while(i>0||su==1){
+            su+=s.charAt(i);
+            
         }
+
     }
 }
