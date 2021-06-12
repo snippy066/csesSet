@@ -1,24 +1,24 @@
 import java.util.*;
 
 public class palidromReorder {
-    private static HashMap<String,Integer> hm;
+    private static HashMap<Character,Integer> hm;
     public static void main(String ar[]){
         Scanner sc=new Scanner(System.in);
 
-        String st[]=sc.nextLine().split("");
-
-        getpalindrom(st,st.length);
+        String st=sc.nextLine();
+        char[] ch=new char[st.length()];
+        for(int i=0;i<st.length();i++)
+            ch[i]=st.charAt(i);
+        getpalindrom(ch,st.length());
     }
 
-    static void getpalindrom(String[] s,int n){
-        hm=new HashMap<String,Integer>();
+    static void getpalindrom(char[] s,int n){
+        hm=new HashMap<Character,Integer>();
 
         for(int i=0;i<n;i++){
-            if(hm.containsKey(s[i])){
-                int k=hm.get(s[i])+1;
-                //System.out.println(k);
-                hm.put(s[i],k);
-            }
+            if(hm.containsKey(s[i]))
+                hm.put(s[i],hm.get(s[i])+1);
+
             else
                 hm.put(s[i],1);
         }
@@ -29,7 +29,7 @@ public class palidromReorder {
             if((int)mp.getValue()%2!=0){
                 oddCount++;
                 flag++;
-                ch=(String)mp.getKey();
+                ch=Character.toString((Character)mp.getKey());
             }
 
             if(flag>1)
@@ -42,11 +42,14 @@ public class palidromReorder {
             System.out.println("NO SOLUTION");
         else{
             for(Map.Entry mp :hm.entrySet()) {
-                String s1="";
+                String s1;
                 int cnt=(int)mp.getValue()/2;
-                while(cnt-->0){
-                    s1=s1+(String) mp.getKey();
-                }
+                char fil=(Character)mp.getKey();
+               // System.out.println(fil);
+                char[] arr=new char[cnt];
+                Arrays.fill(arr,fil);
+
+                s1=new String(arr);
                 firsth+=s1;
                 secondh=s1+secondh;
             }
