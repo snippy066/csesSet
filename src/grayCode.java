@@ -4,23 +4,29 @@ public class grayCode {
     public static void main(String ar[]){
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        char[] ch=new char[n];
-        Arrays.fill(ch,'0');
-        char add='1';
-        String s=new String(ch);
         StringBuilder sb=new StringBuilder();
-        for(long i=0;i<Math.pow(2,n);i++) {
-            int su = 0;
-            String res = "";
-            int l = s.length()-1;
-            while (l >=0 || su == 1) {
-                su += s.charAt(l) + add;
-                res += (char) (su % 2+'0');
-                su /= 2;
-                l--;
+
+        List<Integer> list=new ArrayList<>();
+        list.add(0);
+        list.add(1);
+        int sz;
+        while(n>1){
+            sz=list.size();
+            for(int i=sz-1;i>=0;i--){
+                list.add(list.get(i)+sz);
             }
-            sb.append(res + "\n");
+            n--;
         }
+
+        for(int i=0;i<list.size();i++){
+            String s=Integer.toBinaryString(list.get(i));
+            
+            char[] ch=new char[n-s.length()];
+            Arrays.fill(ch,'0');
+            String add=new String(ch);
+            sb.append(add+s+"\n");
+        }
+
         System.out.println(sb);
     }
 }
