@@ -12,7 +12,7 @@ public class towerOfHan {
     static void tower(int n,String sr,String aux,String des){
         if(n==1) {
             sb.append(sr + " " + des + "\n");
-            
+            return;
         }
         tower(n-1,sr,aux,des);
         sb.append(sr+" "+des+"\n");
