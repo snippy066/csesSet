@@ -2,11 +2,11 @@ import java.util.*;
 
 public class createString {
     private static StringBuilder sb=new StringBuilder();
-    private static String[] arr;
+    private static String a;
     public static void main(String ar[]){
         Scanner in=new Scanner(System.in);
-        arr=in.nextLine().split("");
-        int n=arr.length;
+        a=in.nextLine();
+        int n=a.length();
 
         permute(0,n-1);
         System.out.print(sb.toString());
@@ -14,13 +14,13 @@ public class createString {
 
     static void permute(int l,int r){
         if(l==r)
-            sb.append(arr);
+            sb.append(a);
         else{
 
             for(int i=l;i<=r;i++){
-                swap(arr[l],arr[i]);
+                swap(a[l],a[i]);
                 permute(l+1,r);
-                swap(arr[l],arr[i]);
+                swap(a[l],a[i]);
             }
         }
     }
