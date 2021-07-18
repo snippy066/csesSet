@@ -25,7 +25,11 @@ public class appleDivision {
                 else
                     sum2+=arr[j];
             }
-            
+            int diff=sum1-sum2;
+            if(diff<0)
+                diff*=-1;
+
+            min=Math.min(min,diff);
         }
     }
 }
