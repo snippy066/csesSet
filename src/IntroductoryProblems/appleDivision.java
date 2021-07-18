@@ -8,7 +8,7 @@ public class appleDivision {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
 
-        long[] arr=new long[n];
+        int[] arr=new int[n];
 
         for(int i=0;i<n;i++)    arr[i]=sc.nextInt();
 
@@ -16,9 +16,9 @@ public class appleDivision {
     }
 
     static int getdiff(int[] arr,int n){
-        int min=Integer.MAX_VALUE;
+        long min=Integer.MAX_VALUE;
         for(int i=0;i<(int)Math.pow(2,n);i++){
-            int sum1=0,sum2=0;
+            long sum1=0,sum2=0;
             for(int j=0;j<n;j++){
                 if((i&(1<<j))>0)
                     sum1 += arr[j];
@@ -26,13 +26,13 @@ public class appleDivision {
                 else
                     sum2+=arr[j];
             }
-            int diff=sum1-sum2;
+            long diff= (sum1-sum2);
             //System.out.println(diff);
             if(diff<0)
                 diff*=-1;
 
             min=Math.min(min,diff);
         }
-        return  min;
+        return  (int)min;
     }
 }
