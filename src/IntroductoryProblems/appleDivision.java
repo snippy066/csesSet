@@ -12,10 +12,10 @@ public class appleDivision {
 
         for(int i=0;i<n;i++)    arr[i]=sc.nextInt();
 
-        getdiff(arr,n);
+        System.out.println(getdiff(arr,n));
     }
 
-    static void getdiff(int[] arr,int n){
+    static int getdiff(int[] arr,int n){
         int sum1=0,sum2=0,min=Integer.MAX_VALUE;
         for(int i=0;i<(int)Math.pow(2,n);i++){
             for(int j=0;j<n;j++){
@@ -31,5 +31,6 @@ public class appleDivision {
 
             min=Math.min(min,diff);
         }
+        return  min;
     }
 }
