@@ -1,7 +1,9 @@
 //package sortingAndSearching;
 
-import java.util.HashMap;
+//import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class distinctNum {
     private static StringBuilder sb=new StringBuilder();
@@ -10,16 +12,11 @@ public class distinctNum {
 
         int n=in.nextInt();
 
-        HashMap<Integer,Integer> hs=new HashMap<>();
+        Set<Integer> hs = new HashSet<Integer>();
 
         for(int i=0;i<n;i++){
             int key=in.nextInt();
-
-            if(hs.containsKey(key)){
-                hs.put(key,hs.get(key)+1);
-            }
-            else
-                hs.put(key,1);
+            hs.add(key);
         }
         System.out.println(hs.size());
     }
