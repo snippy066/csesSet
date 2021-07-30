@@ -1,6 +1,7 @@
 //package sortingAndSearching;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class aparments {
@@ -12,34 +13,49 @@ public class aparments {
         int m=in.nextInt();
         int k=in.nextInt();
 
-        int[] desi=new int[n];
-        int[] rel=new int[m];
+//        int[] desi=new int[n];
+//        int[] rel=new int[m];
+//
+//        for(int i=0;i<n;i++)    desi[i]=in.nextInt();
+//        for(int i=0;i<m;i++)    rel[i]=in.nextInt();
+//        Arrays.sort(desi);
+//        Arrays.sort(rel);
 
-        for(int i=0;i<n;i++)    desi[i]=in.nextInt();
-        for(int i=0;i<m;i++)    rel[i]=in.nextInt();
+//        PriorityQueue<Integer> desi=new PriorityQueue<>();
+//        PriorityQueue<Integer> rel=new PriorityQueue<>();
 
-        Arrays.sort(desi);
-        Arrays.sort(rel);
+//        for(int i=0;i<n;i++)  desi.add(in.nextInt());
+//        for(int i=0;i<m;i++)  rel.add(in.nextInt());
 
-        int i=0,j=0,count=0;
-        while(i<n && j<m){
-            int diff=desi[i]-rel[j];
+        in.nextLine();
+        String [] s1=in.nextLine().split(" ");
+        PriorityQueue<String> desi=new PriorityQueue<>(Arrays.asList(s1));
 
-            if(Math.abs(diff)<=k){
-                i++; j++; count++;
+        String [] s2=in.nextLine().split(" ");
+        PriorityQueue<String> rel=new PriorityQueue<>(Arrays.asList(s2));
 
-            }
-            else{
-                if(diff>k)
-                    j++;
+//        int i=0,j=0,count=0;
+//        while(i<n && j<m){
+//            int diff=desi[i]-rel[j];
+//
+//            if(Math.abs(diff)<=k){
+//                i++; j++; count++;
+//
+//            }
+//            else{
+//                if(diff>k)
+//                    j++;
+//
+//                else
+//                    i++;
+//
+//            }
+//
+//        }
 
-                else
-                    i++;
-
-            }
-
-        }
-
-        System.out.println(count);
+        System.out.println(desi);
+        System.out.println(desi.poll());
+        System.out.println(rel);
+        System.out.println(rel.poll());
     }
 }
