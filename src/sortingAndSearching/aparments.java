@@ -27,7 +27,7 @@ public class aparments {
 
             if(Math.abs(diff)<=k){
                 i++; j++; count++;
-                //System.out.println("in loop");
+
             }
             else{
                 if(diff>k)
