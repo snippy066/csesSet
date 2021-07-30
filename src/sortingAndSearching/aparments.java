@@ -23,10 +23,11 @@ public class aparments {
 
         int i=0,j=0,count=0;
         while(i<n && j<m){
-            int diff=desi[i]-rel[i];
+            int diff=desi[i]-rel[j];
 
             if(Math.abs(diff)<=k){
                 i++; j++; count++;
+                //System.out.println("in loop");
             }
             else{
                 if(diff>k)
