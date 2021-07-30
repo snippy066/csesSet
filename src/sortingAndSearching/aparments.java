@@ -13,47 +13,46 @@ public class aparments {
         int m=in.nextInt();
         int k=in.nextInt();
 
-//        int[] desi=new int[n];
-//        int[] rel=new int[m];
-//
-//        for(int i=0;i<n;i++)    desi[i]=in.nextInt();
-//        for(int i=0;i<m;i++)    rel[i]=in.nextInt();
-//        Arrays.sort(desi);
-//        Arrays.sort(rel);
+        int[] desi=new int[n];
+        int[] rel=new int[m];
+
+        for(int i=0;i<n;i++)    desi[i]=in.nextInt();
+        for(int i=0;i<m;i++)    rel[i]=in.nextInt();
+        Arrays.sort(desi);
+        Arrays.sort(rel);
 
 //        PriorityQueue<Integer> desi=new PriorityQueue<>();
 //        PriorityQueue<Integer> rel=new PriorityQueue<>();
-
+//
 //        for(int i=0;i<n;i++)  desi.add(in.nextInt());
 //        for(int i=0;i<m;i++)  rel.add(in.nextInt());
+//
+//        in.nextLine();
+//        String [] s1=in.nextLine().split(" ");
+//        PriorityQueue<String> desi=new PriorityQueue<>(Arrays.asList(s1));
+//
+//        String [] s1=in.nextLine().split(" ");
+//        PriorityQueue<String> desi=new PriorityQueue<>(Arrays.asList(s1));
 
-        in.nextLine();
-        String [] s1=in.nextLine().split(" ");
-        PriorityQueue<String> desi=new PriorityQueue<>(Arrays.asList(s1));
-
-        String [] s2=in.nextLine().split(" ");
-        PriorityQueue<String> rel=new PriorityQueue<>(Arrays.asList(s2));
-
-        int count=0;
-        while(!desi.isEmpty() && !rel.isEmpty()){
-            int diff=Integer.parseInt(desi.peek())-Integer.parseInt(rel.peek());
+        int i=0,j=0,count=0;
+        while(i<n && j<m){
+            int diff=desi[i]-rel[j];
 
             if(Math.abs(diff)<=k){
-                desi.poll(); rel.poll(); count++;
+                i++; j++; count++;
 
             }
             else{
                 if(diff>k)
-                    rel.poll();
+                    j++;
 
                 else
-                    desi.poll();
+                    i++;
 
             }
 
         }
 
         System.out.println(count);
-
     }
 }
