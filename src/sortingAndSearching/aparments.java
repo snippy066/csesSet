@@ -34,28 +34,26 @@ public class aparments {
         String [] s2=in.nextLine().split(" ");
         PriorityQueue<String> rel=new PriorityQueue<>(Arrays.asList(s2));
 
-//        int i=0,j=0,count=0;
-//        while(i<n && j<m){
-//            int diff=desi[i]-rel[j];
-//
-//            if(Math.abs(diff)<=k){
-//                i++; j++; count++;
-//
-//            }
-//            else{
-//                if(diff>k)
-//                    j++;
-//
-//                else
-//                    i++;
-//
-//            }
-//
-//        }
+        int count=0;
+        while(!desi.isEmpty() && !rel.isEmpty()){
+            int diff=Integer.parseInt(desi.peek())-Integer.parseInt(rel.peek());
 
-        System.out.println(desi);
-        System.out.println(desi.poll());
-        System.out.println(rel);
-        System.out.println(rel.poll());
+            if(Math.abs(diff)<=k){
+                desi.poll(); rel.poll(); count++;
+
+            }
+            else{
+                if(diff>k)
+                    rel.poll();
+
+                else
+                    desi.poll();
+
+            }
+
+        }
+
+        System.out.println(count);
+
     }
 }
