@@ -1,6 +1,7 @@
 //package sortingAndSearching;
 
 //import java.util.HashMap;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 //import java.util.Set;
@@ -11,10 +12,11 @@ public class distinctNum {
         Scanner in=new Scanner(System.in);
 
         int n=in.nextInt();
+        in.nextLine();
 
-        
+        String arr[]=in.nextLine().split(" ");
 
-        HashSet<Integer> hs = new HashSet<Integer>();
+        HashSet<String> hs = new HashSet<String>(Arrays.asList(arr));
 
 //        for(int i=0;i<n;i++){
 //
