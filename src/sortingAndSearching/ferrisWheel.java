@@ -1,4 +1,4 @@
-package sortingAndSearching;
+//package sortingAndSearching;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -10,6 +10,7 @@ public class ferrisWheel {
         int n=in.nextInt();
         int x=in.nextInt();
 
+        String [] s=in.nextLine().split(" ");
         int[] arr=new int[n];
 
         for(int i=0;i<n;i++)    arr[i]=in.nextInt();
