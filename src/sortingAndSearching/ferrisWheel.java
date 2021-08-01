@@ -10,10 +10,11 @@ public class ferrisWheel {
         int n=in.nextInt();
         int x=in.nextInt();
 
+        in.nextLine();
         String [] s=in.nextLine().split(" ");
         int[] arr=new int[n];
 
-        for(int i=0;i<n;i++)    arr[i]=in.nextInt();
+        for(int i=0;i<n;i++)    arr[i]=Integer.parseInt(s[i]);
 
         Arrays.sort(arr);
 
