@@ -18,8 +18,17 @@ public class ferrisWheel {
 
         int count=0;
 
-        while(true){
-            
+        int i=0;
+        int j=n-1;
+
+        while(i<=j){
+            if(arr[i]+arr[j]>x) j--;
+            else{
+                i++;
+                j--;
+            }
+            count++;
         }
+        System.out.println(count);
     }
 }
