@@ -23,7 +23,24 @@ public class conTick {
         Arrays.sort(price);
 
         for(int i=0;i<m;i++){
-            lowerBnd(price,)
+            int ind=lowerBnd(price,max[i]);
+            if(ind==m) sb.append("-1\n");
+            else {
+                sb.append(price[ind] + "\n");
+                price[ind]=-1;
+            }
         }
+    }
+    static int lowerBnd(int[] arr,int val){
+        int temp=0,l=0,r=arr.length;
+        while(l<r){
+            int m=(l+r)/2;
+
+            if(arr[m]>=val)
+                r=m;
+            else
+                l=m+1;
+        }
+        return r;
     }
 }
