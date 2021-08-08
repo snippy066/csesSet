@@ -2,6 +2,7 @@
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class conTick {
     static StringBuilder sb=new StringBuilder();
@@ -14,6 +15,7 @@ public class conTick {
         int price[]=new int[n];
         int max[]=new int[m];
 
+        in.nextLine();
         String[] s1=in.nextLine().split(" ");
         String [] s2=in.nextLine().split(" ");
 
@@ -22,25 +24,35 @@ public class conTick {
 
         Arrays.sort(price);
 
-        for(int i=0;i<m;i++){
-            int ind=lowerBnd(price,max[i]);
-            if(ind==m) sb.append("-1\n");
-            else {
-                sb.append(price[ind] + "\n");
-                price[ind]=-1;
+        String s=String.valueOf(getUserPrices(price,max));
+        System.out.println(s);
+    }
+    static int[] getUserPrices(int[] prices, int[] bids) {
+        TreeMap<Integer, Integer> tree = new TreeMap<>();
+        for ( int price : prices ) {
+            if ( tree.containsKey(price) ) {
+                tree.put(price, tree.get(price) + 1);
+            } else {
+                tree.put(price, 1);
             }
         }
-    }
-    static int lowerBnd(int[] arr,int val){
-        int temp=0,l=0,r=arr.length;
-        while(l<r){
-            int m=(l+r)/2;
 
-            if(arr[m]>=val)
-                r=m;
-            else
-                l=m+1;
+        int[] result = new int[bids.length];
+        for ( int i = 0; i < bids.length; i++ ) {
+            Integer k = tree.floorKey(bids[i]);
+            if ( k != null ) {
+                result[i] = k;
+                int value = tree.get(k);
+                if ( value-1 > 0 ) {
+                    tree.put(k, value-1);
+                } else {
+                    tree.remove(k);
+                }
+            } else {
+                result[i]= -1;
+            }
         }
-        return r;
+
+        return result;
     }
 }
