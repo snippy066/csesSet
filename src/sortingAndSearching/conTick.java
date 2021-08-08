@@ -6,6 +6,7 @@ import java.util.TreeMap;
 
 public class conTick {
     static StringBuilder sb=new StringBuilder();
+    static int[] result;
     public static void main(String ar[]){
         Scanner in=new Scanner(System.in);
 
@@ -24,10 +25,12 @@ public class conTick {
 
         Arrays.sort(price);
 
-        String s=String.valueOf(getUserPrices(price,max));
-        System.out.println(s);
+        getUserPrices(price,max);
+
+        for(int i=0;i<m;i++) sb.append(result[i]+"\n");
+        System.out.println(sb.toString());
     }
-    static int[] getUserPrices(int[] prices, int[] bids) {
+    static void getUserPrices(int[] prices, int[] bids) {
         TreeMap<Integer, Integer> tree = new TreeMap<>();
         for ( int price : prices ) {
             if ( tree.containsKey(price) ) {
@@ -37,7 +40,7 @@ public class conTick {
             }
         }
 
-        int[] result = new int[bids.length];
+        result = new int[bids.length];
         for ( int i = 0; i < bids.length; i++ ) {
             Integer k = tree.floorKey(bids[i]);
             if ( k != null ) {
@@ -53,6 +56,5 @@ public class conTick {
             }
         }
 
-        return result;
     }
 }
